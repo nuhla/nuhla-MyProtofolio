@@ -118,7 +118,7 @@ class Profile extends React.Component {
             justifyContent: 'center',
           }}
         >
-           <div style={{alignContent:"center" ,display:"flex",flexDirection:"row" ,width:"50%"}}>
+           <div style={{alignContent:"center" ,display:"flex",flexDirection:"row" ,width:"40%"}}>
          <Skills data={this.props.AboutMe[1]}></Skills>
      
           </div>
@@ -140,7 +140,7 @@ class Profile extends React.Component {
             src={
               'https://webstockreview.net/images/clipart-happy-business-person-6.png'
             }
-            style={{ marginTop: 100, width: '60%' }}
+            style={{ marginTop: 100, width: '50%' }}
           />
         </ParallaxLayer>
 {/* 

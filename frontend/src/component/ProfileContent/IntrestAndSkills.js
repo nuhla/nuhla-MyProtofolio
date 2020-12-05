@@ -30,7 +30,7 @@ const creatText = (text = '') => {
   var splitedArray = text.split('\n')
 
   var TextArray = [
-    <Title level={5}>{splitedArray[0]}</Title>,
+    <Title level={3}>{splitedArray[0]}</Title>,
 
     <Divider orientation="left"> {splitedArray[2]}</Divider>,
   ]
@@ -95,7 +95,7 @@ function SkillCard(data) {
         <Col span={5}>
           <div class="bg"></div>
         </Col>
-        <Col span={19} style={{ padding: 30 }}>
+        <Col span={19} style={{ padding: 30 , fontSize:"2.2vh"}}>
           {creatText(data?.data?.text)}
         </Col>
       </Row>

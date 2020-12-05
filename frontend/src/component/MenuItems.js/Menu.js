@@ -5,9 +5,9 @@ import Icon from '@ant-design/icons';
 import { Keyframes, animated } from 'react-spring/renderprops';
 import {  Form,  Image } from 'antd';
 import delay from 'delay';
-import MenuItem from "./MenuItem"
 import { PandaSvg} from "../CVG"
 import {connect} from "react-redux"
+import  SideBarItem from "./SideBarItem"
 import {fetchProjects,fetchAboutMe , fetchPersonalInfo,fetchWork, fetchEducation,fetchPortfolio} from "../../Redux/ActionCreator";
 
 
@@ -57,6 +57,7 @@ const Content = Keyframes.Trail({
   close: { x: -100, opacity: 0, delay: 0 },
 });
 
+// Create Item Info 
 const PandaIcon = (props) => <Icon color="#ffffff" component={PandaSvg} {...props} />;
 const items = [
   <Image
@@ -72,9 +73,7 @@ const items = [
   <Fragment >
 
   </Fragment>,
-  <MenuItem title="Nuhla Ibrahem Al masri" />,
-   <MenuItem title="Full Stack Engineer" />,
-  <MenuItem title="Ramallah, Palestinian Territories – 2:27am local time"/>,
+ <SideBarItem/>,
 ];
 
 class Menu extends React.Component {

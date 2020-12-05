@@ -95,7 +95,7 @@ function Projects() {
       <Global></Global>
       <Container
         style={{ ...rest, width: size, height: size }}
-        onClick={() => set((open) => !open)}
+        onClick={() => set((open) => true)}
       >
         {transitions.map(({ item, key, props }) => (
           <Item key={key} style={{ ...props, background: item.css }}>
