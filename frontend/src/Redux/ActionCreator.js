@@ -7,7 +7,7 @@ export const fetchPersonalInfo = () => async (dispatch) => {
   dispatch(PersonalOnfoLoading())
 
   return await axios
-    .get('http://127.0.0.1:8000/api/personalIfo/')
+    .get('api/personalIfo/')
     .then((PersonalOnfo) => {
       dispatch(addPersonalOnfo(PersonalOnfo.data))
     })
@@ -36,7 +36,7 @@ export const fetchProjects = () => async (dispatch) => {
   dispatch(ProjectsLoading())
 
   return await axios
-    .get('http://127.0.0.1:8000/api/projects/')
+    .get('api/projects/')
     .then((projects) => dispatch(addProjects(projects.data)))
     .catch((error) => dispatch(ProjectsFailed(error.message)))
 }
@@ -63,7 +63,7 @@ export const fetchWork = () => async (dispatch) => {
   dispatch(WorkLoading())
 
   return await axios
-    .get('http://127.0.0.1:8000/api/jobHistory/')
+    .get('api/jobHistory/')
     .then((Work) => dispatch(addWork(Work.data)))
     .catch((error) => dispatch(WorkFailed(error.message)))
 }
@@ -90,7 +90,7 @@ export const fetchEducation = () => async (dispatch) => {
   dispatch(EducationLoading())
 
   return await axios
-    .get('http://127.0.0.1:8000/api/educationAndCirtficate/')
+    .get('educationAndCirtficate/')
     .then((Education) => dispatch(addEducation(Education.data)))
     .catch((error) => dispatch(EducationFailed(error.message)))
 }
@@ -118,7 +118,7 @@ export const fetchPortfolio = () => async (dispatch) => {
   dispatch(PortfolioLoading())
 
   return await axios
-    .get('http://127.0.0.1:8000/api/educationAndCirtficate/')
+    .get('api/educationAndCirtficate/')
     .then((Work) => dispatch(addPortfolio(Work.data)))
     .catch((error) => dispatch(PortfolioFailed(error.message)))
 }
@@ -146,7 +146,7 @@ export const fetchAboutMe = () => async (dispatch) => {
   dispatch(AboutMeLoading())
 
   return await axios
-    .get('http://127.0.0.1:8000/api/aboutMe/')
+    .get('api/aboutMe/')
     .then((AboutMe) => dispatch(addAboutMe(AboutMe.data)))
     .catch((error) => dispatch(AboutMeFailed(error.message)))
 }

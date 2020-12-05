@@ -12,11 +12,19 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os.path 
-
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env(
+# set casting, default value
+# DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env()
+
 BACKEND_DIR = BASE_DIR
+
 FRONTEND_DIR = os.path.abspath(
     os.path.join(BACKEND_DIR, '..', 'frontend'))
 
@@ -25,7 +33,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(FRONTEND_DIR, 'build', 'static')]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 STATIC_ROOT = os.path.join(BACKEND_DIR, 'static')
 
@@ -37,13 +44,12 @@ WHITENOISE_ROOT = os.path.join(FRONTEND_DIR, 'build', 'root')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fcll4-p9bs^ejgx_m7rhk+g*2-kr)dpwe551um_$*zju0+$7by'
+SECRET_KEY =  env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(",")
 
 # Application definition
 
@@ -59,7 +65,6 @@ INSTALLED_APPS = [
     'projects'
     # 'whitenoise.runserver_nostatic',
     # 'django.contrib.staticfiles',
-
 ]
 
 MIDDLEWARE = [
@@ -95,7 +100,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -105,7 +109,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -139,9 +142,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 
 CORS_ALLOW_ALL_ORIGINS = True
