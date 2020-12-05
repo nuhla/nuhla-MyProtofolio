@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
 import ProjectItem from './ProjectItem'
+import ProjectsIntro from "./MyProjectIntro"
 
 ///---------------------------------------- Redux with Hooks -----------------------------------//
 import { useSelector } from 'react-redux'
@@ -15,18 +16,18 @@ function Projects() {
     ref: springRef,
     config: config.stiff,
     from: {
-      size: '15%',
+      size: '50%',
       background: 'rgba(255, 255, 255, 0.0)',
       margin: '50% auto',
-      marginTop: '20%',
+      marginTop: '10%',
     },
     to: {
-      size: open ? '100%' : '10%',
+      size: open ? '100%' : '50%',
       background: open
         ? 'rgba(255, 255, 255, 0.0)'
         : 'rgba(255, 255, 255, 0.0)',
       margin: open ? '0 auto' : '20%',
-      marginTop: open ? '0' : '20%',
+      marginTop: open ? '0' : '10%',
     },
   })
 
@@ -68,6 +69,8 @@ function Projects() {
   return (
     <div id="root" style={{ alignContent: 'center', alignItems: 'center' }}>
       {open ? (
+        <>
+       
         <button
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.0)',
@@ -87,11 +90,12 @@ function Projects() {
             }}
           ></a>
         </button>
+        </>
       ) : null}
       <Global></Global>
       <Container
         style={{ ...rest, width: size, height: size }}
-        onClick={() => set((open) => true)}
+        onClick={() => set((open) => !open)}
       >
         {transitions.map(({ item, key, props }) => (
           <Item key={key} style={{ ...props, background: item.css }}>
@@ -99,7 +103,11 @@ function Projects() {
           </Item>
         ))}
         {!open ? (
-          <div
+          <>
+         
+            <ProjectsIntro/>
+            <div></div>
+          {/* <div
             className="socialDiv"
             style={{
               width: '100%',
@@ -115,7 +123,8 @@ function Projects() {
               style={{ fontSize: '22px', color: 'white', margin: '0 0 6 0' }}
             ></i>
             Open
-          </div>
+          </div> */}
+          </>
         ) : null}
         {/* <button style={{position:"fixed" , top:"20"}} onClick={() => set(open => !open)} > {open?"close":""}</button> */}
       </Container>

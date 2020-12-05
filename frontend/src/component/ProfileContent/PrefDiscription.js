@@ -12,11 +12,11 @@ class PrefDiscription extends React.Component {
   render() {
     return (
       <div style={{}}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Text strong style={{ fontSize: '3.2vh', color: '#f5faff' }}>
-            Who I am
+        <div style={{ display: 'flex', flexDirection: 'column' ,textAlign:"center"}}>
+          <Text strong style={{ fontSize: '3.5vh', color: '#f5faff' }}>
+            Nahla Ibrahim Al masri
           </Text>
-          <Text secondary style={{ fontSize: '2vh', color: '#f5faff' }}>
+          <Text secondary style={{ fontSize: '3.2vh', color: '#d0d0d19b', textAlign:"center" }}>
             {this.props?.AbouMe?.title}
           </Text>
           <Text

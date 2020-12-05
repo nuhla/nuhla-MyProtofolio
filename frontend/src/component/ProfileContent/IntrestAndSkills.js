@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
 import './IntrestAndSkills.css'
-import {  Row, Col, Typography } from 'antd'
+import { Row, Col, Typography } from 'antd'
 import { CheckCircleTwoTone } from '@ant-design/icons'
 import { Rate, Divider } from 'antd'
 
@@ -27,7 +27,6 @@ const trans = (x, y, s) =>
 
 //-------------------- create Text Content -----------------------------//
 const creatText = (text = '') => {
- 
   var splitedArray = text.split('\n')
 
   var TextArray = [
@@ -40,21 +39,24 @@ const creatText = (text = '') => {
     console.log(splitedArray[i].length)
     if (splitedArray[i].length === 1) {
       TextArray.push(
-        <Text style={{color:"ActiveCaption"}}>
-          <Paragraph > {splitedArray[i]}</Paragraph>
-          <Paragraph style={{color:"ActiveCaption"}}> {splitedArray[i]}</Paragraph>
+        <Text style={{ color: 'ActiveCaption' }}>
+          <Paragraph> {splitedArray[i]}</Paragraph>
+          <Paragraph style={{ color: 'ActiveCaption' }}>
+        
+            {splitedArray[i]}
+          </Paragraph>
         </Text>,
       )
     } else {
       TextArray.push(
         <div
-          style={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}
+          style={{ display: 'flex', alignItems: 'center', textAlign: "left" }}
         >
           <Paragraph>
             <CheckCircleTwoTone twoToneColor="#52c41a" spin={true} />{' '}
             {splitedArray[i]}
           </Paragraph>
-          <Rate
+          {/* <Rate
             value={3}
             count={3}
             allowClear={false}
@@ -67,9 +69,8 @@ const creatText = (text = '') => {
               padding: 0,
               margin: 0,
             }}
-          />
+          /> */}
         </div>,
-      
       )
     }
   }

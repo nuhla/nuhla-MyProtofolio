@@ -10,7 +10,7 @@
     -moz-osx-font-smoothing: grayscale;
    
     background-image: url("https://awv3node-homepage.surge.sh/build/assets/stars.svg");
-     background-color: #282c34;
+     background-color: #7997d121;
   }
 
   .todo-title {
@@ -151,6 +151,7 @@
   background-color:  #35528C;
   align-items: center;
   align-content: center;
+    box-shadow: 2px 4px rgba(255, 255, 255, 0.26);
 }
 .navBarItem{
   margin-left: 3vh;

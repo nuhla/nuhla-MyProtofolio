@@ -3,7 +3,7 @@
 .card {
   width: 100ch;
   height: 60ch;
-  background: rgba(255, 255, 255, 0.746);
+  background: rgba(255, 255, 255, 0.99);
   border-radius: 10px;
   background-size: cover;
   background-position: center center;
@@ -23,7 +23,7 @@ body, html {
 
 .bg { 
   /* The image used */
-  background-image: url("https://www.kindpng.com/picc/m/124-1247377_website-development-auckland-web-development-png-images-hd.png");
+  background-image: url("https://flevix.com/wp-content/uploads/2019/12/Live-Wave-Background.svg");
 
   /* Full height */
   height: 100%; 
