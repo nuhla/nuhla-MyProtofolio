@@ -21,14 +21,7 @@ const mapStatetoProps=(state)=>({
   Personalinfo:state.Personalinfo.PersinalInformation
 })
 
-const mapDispatchToProps =(dispatch)=>({
-  fetchProjects:()=>dispatch(fetchProjects()),
-  fetchPersonalInfo:()=>dispatch(fetchPersonalInfo()),
-  fetchWork:()=>dispatch(fetchWork()),
-  fetchEducation:()=>dispatch(fetchEducation()),
-  fetchPortfolio:()=>dispatch(fetchPortfolio()),
-  fetchAboutMe:()=>dispatch(fetchAboutMe())
-})
+
 // Creates a spring with predefined animation slots
 const Sidebar = Keyframes.Spring({
   // Slots can take arrays/chains,
@@ -81,9 +74,9 @@ class Menu extends React.Component {
  
 componentDidMount(){
 
-  this.props.fetchProjects()
-  this.props.fetchPersonalInfo()
-  this.props.fetchAboutMe()
+  // this.props.fetchProjects()
+  // this.props.fetchPersonalInfo()
+  // this.props.fetchAboutMe()
 }
 
   state = { open: undefined, Projects: null };
@@ -99,7 +92,7 @@ componentDidMount(){
      console.log("hooooooooooooo")
     return (
       <>
-        <div style={{ zIndex: 100, position: 'absolute'  ,top:"30%"  }}>
+        <div style={{ zIndex: 100, position: 'absolute'  ,top:"2%"  }}>
           <PandaIcon
             style={{  position:"sticky"  }}
             type={`menu-${icon}`}
@@ -149,4 +142,4 @@ componentDidMount(){
     );
   }
 }
-export default  connect(mapStatetoProps,mapDispatchToProps)(Menu);
+export default  connect(mapStatetoProps)(Menu);

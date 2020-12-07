@@ -28,5 +28,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include("projects.urls")),
     # path('api/', include(router.urls)),
-    re_path(r'', views.catchall),
+     path('', views.catchall),
+    path('projects', views.catchall),
+    path('work', views.catchall),
+    path('education', views.catchall),
+    path('accounts/', include('allauth.urls')),
 ]

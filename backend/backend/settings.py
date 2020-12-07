@@ -12,16 +12,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os.path 
-import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-env = environ.Env(
-# set casting, default value
-# DEBUG=(bool, False)
-)
+
 # reading .env file
-environ.Env.read_env()
+
 
 BACKEND_DIR = BASE_DIR
 
@@ -44,12 +41,11 @@ WHITENOISE_ROOT = os.path.join(FRONTEND_DIR, 'build', 'root')
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  env('SECRET_KEY')
+SECRET_KEY =  'fcll4-p9bs^ejgx_m7rhk+g*2-kr)dpwe551um_$*zju0+$7by'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
-
-ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(",")
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -59,6 +55,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.staticfiles',
     'corsheaders',            # add this
     'rest_framework',         # add this
@@ -110,6 +110,7 @@ DATABASES = {
     }
 }
 
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -146,3 +147,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+AUTHENTICATION_BACKENDS = [
+ 
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+   
+]
+
+SITE_ID = 1

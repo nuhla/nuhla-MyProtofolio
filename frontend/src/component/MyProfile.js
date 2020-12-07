@@ -26,7 +26,8 @@ class Profile extends React.Component {
   render() {
 
     return (
-      <Parallax ref={(ref) => (this.parallax = ref)} pages={3}  >
+ 
+      <Parallax ref={(ref) => (this.parallax = ref)} pages={2}  >
           
         <ParallaxLayer
           offset={0}
@@ -90,18 +91,17 @@ class Profile extends React.Component {
           speed={0.1}
           onClick={() => this.parallax.scrollTo(1)}
           style={{
-            display: 'flex',
+           display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight:"30%",
-            marginLeft:"7%",
+            margin :"0 auto"
           }}
         >
           <div style={{width:"50%"}} >
             <div style={{alignContent:"center" ,display:"flex",flexDirection:"row" }}>
               
               <PrefDiscription AbouMe={this.props.AboutMe[0]}></PrefDiscription>
-               <img src={"https://pngimg.com/uploads/question_mark/question_mark_PNG129.png"}   alt="" style={{width:"30%", height:"25%"}} />
+               {/* <img src={"https://pngimg.com/uploads/question_mark/question_mark_PNG129.png"}   alt="" style={{width:"30%", height:"25%"}} /> */}
             </div>
 
            
@@ -111,21 +111,22 @@ class Profile extends React.Component {
         <ParallaxLayer
           offset={1}
           speed={0.1}
-          onClick={() => this.parallax.scrollTo(2)}
+          onClick={() => this.parallax.scrollTo(0)}
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            margin :"0 auto"
           }}
         >
-           <div style={{alignContent:"center" ,display:"flex",flexDirection:"row" ,width:"40%"}}>
+           <div style={{ display:"flex",flexDirection:"row"  , maxWidth:"700px" , margin :"0 auto"}}>
          <Skills data={this.props.AboutMe[1]}></Skills>
      
           </div>
               
         </ParallaxLayer>
 
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={2}
           speed={0.1}
           style={{
@@ -142,7 +143,7 @@ class Profile extends React.Component {
             }
             style={{ marginTop: 100, width: '50%' }}
           />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 {/* 
         <ParallaxLayer
           offset={3}
@@ -157,6 +158,7 @@ class Profile extends React.Component {
           <img src={url('bash')}   alt="" style={{ width: '40%' }} />
         </ParallaxLayer> */}
       </Parallax>
+  
     )
   }
 }

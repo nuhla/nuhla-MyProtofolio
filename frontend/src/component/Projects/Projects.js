@@ -3,22 +3,30 @@ import { useTransition, useSpring, useChain, config } from 'react-spring'
 import { Global, Container, Item } from './styles'
 import ProjectItem from './ProjectItem'
 import ProjectsIntro from "./MyProjectIntro"
+import { Typography, Divider, Card,Button } from 'antd'
+import { SyncOutlined  ,PushpinFilled} from '@ant-design/icons';
 
-///---------------------------------------- Redux with Hooks -----------------------------------//
+
 import { useSelector } from 'react-redux'
+
+const { Meta } = Card
+const { Text } = Typography
+///---------------------------------------- Redux with Hooks -----------------------------------//
+
+
 
 //----------------------- Our main Function to create Project Page -----------------------------//
 function Projects() {
   const Projects = useSelector((state) => state.Projects)
-  const [open, set] = useState(false)
+  const [open, set] = useState(true)
   const springRef = useRef()
   const { size, opacity, ...rest } = useSpring({
     ref: springRef,
     config: config.stiff,
     from: {
-      size: '50%',
+      size: '100%',
       background: 'rgba(255, 255, 255, 0.0)',
-      margin: '50% auto',
+      margin: '10px auto',
       marginTop: '10%',
     },
     to: {
@@ -26,7 +34,7 @@ function Projects() {
       background: open
         ? 'rgba(255, 255, 255, 0.0)'
         : 'rgba(255, 255, 255, 0.0)',
-      margin: open ? '0 auto' : '20%',
+      margin: open ? '0 auto' : '10px',
       marginTop: open ? '0' : '10%',
     },
   })
@@ -67,9 +75,10 @@ function Projects() {
   ])
 
   return (
-    <div id="root" style={{ alignContent: 'center', alignItems: 'center' }}>
+   
+    <div id="root" class="container">
       {open ? (
-        <>
+
        
         <button
           style={{
@@ -77,7 +86,7 @@ function Projects() {
             borderStyle: 'none',
           }}
           onClick={() => {
-            console.log(open ,"oppppppppppppppen")
+       
             set((open) => false)
           }}
         >
@@ -90,7 +99,7 @@ function Projects() {
             }}
           ></a>
         </button>
-        </>
+
       ) : null}
       <Global></Global>
       <Container
@@ -103,32 +112,40 @@ function Projects() {
           </Item>
         ))}
         {!open ? (
-          <>
+ <>
          
             <ProjectsIntro/>
-            <div></div>
-          {/* <div
-            className="socialDiv"
-            style={{
-              width: '100%',
-              display: 'flex',
-              color: 'white',
-              fontSize: '1.8vh',
-              fontWeight: 'bold',
-              margin: 0,
-            }}
-          >
-            <i
-              class="fa fa-folder-open fa-lg "
-              style={{ fontSize: '22px', color: 'white', margin: '0 0 6 0' }}
-            ></i>
-            Open
-          </div> */}
-          </>
+                <div className="card" style={{backgroundImage:"url(https://i.pinimg.com/originals/2f/84/56/2f8456cc5b3d48593c96a82e7a63184f.jpg)" , } }>
+       
+              <div >
+            <p strong style={{ fontSize: '3.2vh',textAlign: 'left', width: '100%', marginLeft: '15px' }}>
+              Back End
+            </p>
+           </div>
+            <Divider orientation="left"></Divider>
+           
+            <p style={{ textAlign: 'left', width: '100%', marginLeft: '10%' }}>
+                <Button type="primary" shape="circle" icon={<PushpinFilled  />} style={{marginRight:"20px"}}/> 
+             languages : python , javascript , typescript
+            </p>
+            <p style={{ textAlign: 'left', width: '100%', marginLeft: '10%' }}>
+                 <Button type="primary" shape="circle" icon={<PushpinFilled  />} style={{marginRight:"20px" , justifyContent:"center"}}/>
+              Technologies: Nodejs , express , Firebase, GraphQL , Facebook Graphql
+              API , django,Aouth2,JWT, Passport , Mysql , Sqlit3, Mongoodb
+            </p>
+         
+                      {/* <Button type="primary" shape="round" icon={<SyncOutlined spin  />} size="large"> Click Here To see All List</Button> */}
+
+            
+          </div>
+        
+     </>
+         
         ) : null}
-        {/* <button style={{position:"fixed" , top:"20"}} onClick={() => set(open => !open)} > {open?"close":""}</button> */}
+        
       </Container>
     </div>
+   
   )
 }
 

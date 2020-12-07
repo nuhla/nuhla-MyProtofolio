@@ -63,7 +63,7 @@ export const fetchWork = () => async (dispatch) => {
   dispatch(WorkLoading())
 
   return await axios
-    .get('api/jobHistory/')
+    .get("api/jobHistory/")
     .then((Work) => dispatch(addWork(Work.data)))
     .catch((error) => dispatch(WorkFailed(error.message)))
 }
@@ -74,7 +74,7 @@ export const WorkFailed = (errmess) => ({
 })
 
 export const addWork = (Work) => ({
-  type: ActionTypes.PERSONALINFO_ADD,
+  type: ActionTypes.WORKHISTORY_ADD,
   payload: Work,
 })
 
@@ -90,7 +90,7 @@ export const fetchEducation = () => async (dispatch) => {
   dispatch(EducationLoading())
 
   return await axios
-    .get('educationAndCirtficate/')
+    .get('api/educationAndCirtficate/')
     .then((Education) => dispatch(addEducation(Education.data)))
     .catch((error) => dispatch(EducationFailed(error.message)))
 }
@@ -118,8 +118,8 @@ export const fetchPortfolio = () => async (dispatch) => {
   dispatch(PortfolioLoading())
 
   return await axios
-    .get('api/educationAndCirtficate/')
-    .then((Work) => dispatch(addPortfolio(Work.data)))
+    .get('api/protfolio/')
+    .then((Portfolio) => dispatch(addPortfolio(Portfolio.data)))
     .catch((error) => dispatch(PortfolioFailed(error.message)))
 }
 

@@ -144,7 +144,6 @@ const Global = createGlobalStyle`
   
     height: 100%;
     width: 100%;
-padding:"300";
     align-items: center;
     justify-content: center;
   }
@@ -153,8 +152,8 @@ padding:"300";
 const Container = styled(animated.div)`
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, minmax(100px, 1fr));
-  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  grid-gap: 0px;
   padding: 25px;
 
   border-radius: 5px;
